@@ -16,12 +16,11 @@ import android.widget.Toast;
 
 
 
-import models.Detail;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import services.DetailsService;
-import services.ServiceBuilder;
+import services.ServiceBuilder2;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextFirstName, editTextLastName,
@@ -84,23 +83,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void putDetail () {
-        DetailsService detailsService = ServiceBuilder.buildService(DetailsService.class);
-        Call<Detail> createRequest = detailsService.createDetail("1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse",
+        DetailsService detailsService = ServiceBuilder2.buildService(DetailsService.class);
+        Call<Void> createRequest = detailsService.createDetail("1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse",
                 editTextEmail.getText().toString(),
                 editTextFirstName.getText().toString(),
                 editTextLastName.getText().toString(),
                 editTextGitHublink.getText().toString()
         );
 
-        createRequest.enqueue(new Callback<Detail>() {
+        createRequest.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Detail> call, Response<Detail> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 // Dialog Success
                 showDialogSuccessful();
             }
 
             @Override
-            public void onFailure(Call<Detail> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 // Dialog Failure
                    showDialogUnsuccessful();
 
