@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void putDetail () {
         DetailsService detailsService = ServiceBuilder2.buildService(DetailsService.class);
-        Call<Void> createRequest = detailsService.createDetail("1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse",
+        Call<Void> createRequest = detailsService.createDetail(
                 editTextEmail.getText().toString(),
                 editTextFirstName.getText().toString(),
                 editTextLastName.getText().toString(),
