@@ -95,7 +95,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 // Dialog Success
-                showDialogSuccessful();
+                if(response.isSuccessful()) {
+                    showDialogSuccessful();
+                } else {
+                    showDialogUnsuccessful();
+                }
+
             }
 
             @Override
